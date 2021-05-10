@@ -1,0 +1,111 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'result.css' %}" />
+    </head>
+    <body>
+        <div class="container">
+
+
+			<div class="vlogs-playlist playlist">
+
+				<h1>Frames</h1>
+
+				<div class="playlist-videos">
+
+                    {% for frame in frames %} 
+					<div class="playlist-video" tabindex="0">
+
+						<div class="video-thumbnail">
+							<img src= {{frame}} alt="">
+						</div>
+					</div>
+                    {% endfor %} 
+				</div>
+
+            </div>
+            
+            <div class="vlogs-playlist playlist">
+
+				<h1>Cropped Faces</h1>
+
+				<div class="playlist-videos">
+                   
+                    {% for face in cropped %} 
+                    {% if face.file and face.frame %}
+					<div class="playlist-video" tabindex="0">
+
+						<div class="video-thumbnail">
+							<img src= {{face.file}} alt="">
+						</div>
+						<div class="video-info">
+                            <h3 class="video-title">In frame: {{face.frame}}</h3>
+                        </div>
+                        
+                    </div>
+                    {% endif %}
+                    {% endfor %} 
+				</div>
+
+			</div>
+            <div class="vlogs-playlist playlist">
+
+				<h1>Face Alignment and Model Prediction</h1>
+
+				<div class="playlist-videos">
+                   
+                    {% for face in faces %} 
+                    {% if face.prob and face.file and face.frame%}
+					<div class="playlist-video" tabindex="0">
+
+						<div class="video-thumbnail">
+							<img src= {{face.file}} alt="">
+						</div>
+                        {% if face.prob > 0.9 %}
+						<div class="video-info red">
+                            <h3 class="video-title">Fake probability: {{face.prob}}</h3>
+                            <h3 class="video-title">In frame: {{face.frame}}</h3>
+                        </div>
+                        {% else %}
+                        <div class="video-info green">
+                            <h3 class="video-title">Fake probability: {{face.prob}}</h3>
+                            <h3 class="video-title">In frame: {{face.frame}}</h3>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% endfor %} 
+				</div>
+
+			</div>
+            <div class="vlogs-playlist playlist">
+
+				<h1>Fake faces</h1>
+
+				<div class="playlist-videos fake-list">
+
+                    {% for dic in fakeList %}
+                    {% if dic.prob and dic.file and dic.frame%}
+					<div class="playlist-video fake-face" tabindex="0">
+                        
+						<div class="video-thumbnail">
+							<img src= {{dic.file}} alt="">
+						</div>
+                        
+						<div class="video-info">
+                            <h3 class="video-title">Fake probability: {{dic.prob}}</h3>
+                            <h3 class="video-title">Found in frame: {{dic.frame}}</h3>
+						</div>
+
+                    </div>
+                    {% endif %}
+                    {% endfor %} 
+				</div>
+
+			</div>
+	</div>
+
+         
+    </body>
+</html>

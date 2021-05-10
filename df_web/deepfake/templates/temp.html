@@ -1,0 +1,19 @@
+<h1>Frames:</h1>
+            {% for frame in frames %} 
+                <img style = "height:50%;width:50%" src = {{frame}}> 
+            {% endfor %} 
+            <h1>Faces:</h1>
+            {% for face in faces %} 
+                <img src = {{face}}> 
+            {% endfor %} 
+            <h1>Fake Faces:</h1>
+            {% for dic in fakeList %}
+                {% for key, value in dic.items %}
+                    {% if key == 'prob' %}
+                    Probability: {{value}}
+                {% else %}
+                    <img src = {{value}}>
+                {% endif %}
+                    
+                {% endfor %}
+             {% endfor %} 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+</head>
+<body>
+    <h1 id='h1'>DEEPFAKE</h1>
+
+    <div style="margin-left: 30%;">
+        <div id="first">
+          <div id="second">INSERT IMAGE</div>
+          <form method="post" action="predictImage" enctype="multipart/form-data">
+            {% csrf_token %}
+                Insert image<input type="file" name="imagePath" id='imagePath'>
+                    <input type="submit" value="submit" >
+            </form>
+     
+         </div>
+         <div id="third">
+          <div id="fourth">INSERT VIDEO</div>
+          <form method="post" action="predictVideo" enctype="multipart/form-data">
+            {% csrf_token %}
+                Insert video<input type="file" name="videoPath" id='videoPath'>
+                <input type="submit" value="submit">
+            </form>
+         </div>
+    </div>
+    
+</body>
+</html>

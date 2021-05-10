@@ -1,0 +1,83 @@
+body{
+    background-image: url("background.png");
+
+}
+#first {
+    width: 500px;
+    height: 250px;
+    background: WHITE;
+}
+#first #second{
+    width: 25%;
+    height: 20%;
+    background: gray;
+    font-family: cursive;
+    border: 1px solid black;
+    float: right;
+    text-align: center;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-right: 0%;
+}
+#third{
+	background-color: white;
+	width: 500px;
+    height: 250px;
+ }
+#third #fourth{
+	width: 25%;
+    height: 20%;
+    background: gray;
+    font-family: cursive;
+    border: 1px solid black;
+    float: right;
+    text-align: center;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-right: 0%;
+}
+div{
+	width: 400px;
+	height: 250px;
+	border: 3px solid black;
+	float: left;
+	margin-right: 30px; 
+	margin-bottom: 10px;
+	margin-left: 5px;
+ }
+ #h1{
+	text-align: center;
+	font-family: cursive;
+}
+.hero{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+}
+.hero .title{
+	color: #fff;
+	font-size: 50px;
+}
+.hero-button{
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 10px 15px;
+	border-radius: 100px;
+	font-weight: bold;
+	background: orange;
+	color: #fff;
+	cursor: pointer;
+	border: 2px solid orange;
+	margin-top: 10px;
+}
+.hero-button:hover{
+	background: #fff;
+	color: orange;
+	border:black;
+}
